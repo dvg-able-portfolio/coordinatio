@@ -25,3 +25,6 @@
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+# Added by ggshield
+.cache_ggshield
