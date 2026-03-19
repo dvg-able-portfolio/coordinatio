@@ -1,19 +1,5 @@
 # API
 
-## Get Products
+## Coming Soon
 
-GET /api/products
-
-Returns a list of products.
-
-## Update Product Price
-
-PUT /api/products/{id}
-
-Example payload:
-
-```json
-{
-  "price": 1050
-}
-```
+This section is being prepared. Check back later for updates.

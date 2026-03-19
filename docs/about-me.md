@@ -1,12 +1,7 @@
 # About the Author
 
-Developer: Dirk V. Gerigk
+[GitHub](https://github.com/dvg-able)
 
-This repository is part of my backend development portfolio.
+## Coming Soon
 
-Focus areas:
-
-- Backend Development
-
-GitHub:
-https://github.com/dvg-able
+This section is being prepared. Check back later for updates.

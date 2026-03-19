@@ -2,7 +2,9 @@
 
 Coordinatio streamlines hotel operations by connecting guests, staff, and management in a single real-time system. Guests can request services from their room tablet, staff receive and update tasks instantly, and administrators get a complete operational overview — improving efficiency, transparency, and guest satisfaction.
 
-A demo project using Symfony, Redis, Mercure and PostgreSQL.
+A demo project using Symfony, Mercure and PostgreSQL.
+
+
 
 ## Stack
 
@@ -10,6 +12,7 @@ A demo project using Symfony, Redis, Mercure and PostgreSQL.
 - PostgreSQL
 - Mercure
 - Docker
+- Caddy
 
 ## Documentation
 

@@ -1,5 +1,7 @@
 # Coordinatio – Core Workflow Specification
 
+> “This workflow specification is a living document and may evolve over time.”
+
 ## Overview
 
 This document describes the operational workflow of the Coordinatio system.
@@ -15,12 +17,15 @@ The system operates in real time so that all relevant users receive updates imme
 The system contains several user roles.
 
 ### Guest
+
 A hotel guest using the provided tablet to request services.
 
 ### Reception
+
 Reception staff responsible for check-in, check-out, and assisting guests with requests.
 
 ### Service Staff
+
 Employees working in operational departments such as:
 
 - kitchen
@@ -30,6 +35,7 @@ Employees working in operational departments such as:
 They receive and process service tasks.
 
 ### Administrator
+
 Administrators configure the system and manage employees and services.
 
 ---
@@ -135,9 +141,11 @@ Administrators can activate or deactivate services at any time.
 A service request can be created in two ways:
 
 ### Guest Request
+
 The guest places a request using the tablet.
 
 ### Reception Request
+
 Reception staff enter a request on behalf of the guest.
 
 Examples:
