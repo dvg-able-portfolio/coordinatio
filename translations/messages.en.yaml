@@ -1,0 +1,72 @@
+header_navigation:
+    home_label: 'Home'
+    crud_label: 'CRUD'
+
+home_welcome_title: 'Welcome to Coordinatio!'
+home_welcome: 'Real-Time Hotel Service Coordination Platform'
+home_welcome_message: |
+    Here you can manage your departments,
+    employees, and services easily.
+home_welcome_subtitle_note: '(Symfony-based Portfolio Project)'
+departments: 'Departments'
+department: 'Department'
+employees: 'Employees'
+employee: 'Employee'
+guests: 'Guests'
+guest: 'Guest'
+services: 'Services'
+service: 'Service'
+service_request: 'ServiceRequest'
+service_requests: 'ServiceRequests'
+
+crud:
+    back_button: 'Back'
+    create_new: 'Create new'
+    edit: 'Edit'
+    show: 'Show'
+    update: 'Update'
+    delete: 'Delete'
+    delete_confirm: "{{ 'crud.delete_confirm'|trans }}"
+    edit_item: 'Edit %item%'
+    create_item: 'Create %item%'
+    table:
+        header:
+            actions: 'Actions'
+        body:
+            no_records_found: 'no records found'
+            row:
+                values:
+                    yes: 'Yes'
+                    no: 'No'
+    entity:
+        default:
+            available_from: 'Available from'
+            available_to: 'Available to'
+            category: 'Category'
+            changed_at: 'Changed at'
+            changed_by: 'Changed by'
+            check_out_at: 'Check-out at'
+            checked_in_at: 'Check-in at'
+            created_at: 'Created at'
+            created_by: 'Created by'
+            department_id: 'Department ID'
+            department: 'Department'
+            description: 'Description'
+            employee_id: 'Employee ID'
+            employee: 'Employee'
+            guest_id: 'Guest ID'
+            guest: 'Guest'
+            id: 'ID'
+            is_schedulable: 'Schedulable'
+            login_token: 'Login Token'
+            name: 'Name'
+            new_status: 'New status'
+            previous_status: 'Previous status'
+            role: 'Role'
+            room_number: 'Room number'
+            schedule_at: 'Scheduled at'
+            service_request_id: 'Service request ID'
+            service_request: 'Service request'
+            session_token: 'Session token'
+            status: 'Status'
+            updated_at: 'Updated at'

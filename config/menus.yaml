@@ -1,0 +1,3 @@
+header_navigation:
+    web_home: header_navigation.home_label
+    crud_home: header_navigation.crud_label

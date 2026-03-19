@@ -1,0 +1,52 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}{{ 'services'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'services'|trans }}</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<th>{{ 'crud.entity.default.description'|trans }}</th>
+				<th>{{ 'crud.entity.default.category'|trans }}</th>
+				<th>{{ 'crud.entity.default.is_schedulable'|trans }}</th>
+				<th>{{ 'crud.entity.default.available_from'|trans }}</th>
+				<th>{{ 'crud.entity.default.available_to'|trans }}</th>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<th>{{ 'crud.table.header.actions'|trans }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for service in services %}
+				<tr>
+					<td>{{ service.id }}</td>
+					<td>{{ service.name }}</td>
+					<td>{{ service.description }}</td>
+					<td>{{ service.category }}</td>
+					<td>{{ (service.isSchedulable ? 'crud.table.body.row.values.yes' :  'crud.table.body.row.values.no')|trans }}</td>
+					<td>{{ service.availableFrom }}</td>
+					<td>{{ service.availableTo }}</td>
+					<td>{{ service.createdAt ? service.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ service.updatedAt ? service.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						{{ m.list_action_button('crud_service_show',{'id': service.id},'crud.show') }}
+						{{ m.list_action_button('crud_service_edit',{'id': service.id},'crud.edit') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="10">{{ 'crud.table.body.actions.no_records_found'|trans }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{{ m.new_button('crud_service_new') }}
+
+{% endblock %}

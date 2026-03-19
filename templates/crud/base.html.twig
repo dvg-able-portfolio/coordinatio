@@ -1,0 +1,55 @@
+ {% extends 'base.html.twig' %}
+ 
+{% block body %}
+    <div class="container mx-auto p-6 flex flex-col md:flex-row gap-4">
+
+        {% set links = {
+            'crud_department_index': 'departments'|trans,
+            'crud_employee_index': 'employees'|trans,
+            'crud_guest_index': 'guests'|trans,
+            'crud_service_index': 'services'|trans,
+            'crud_service_request_index': 'service_requests'|trans,
+        } %}
+
+        {% set route = app.request.attributes.get('_route') %}
+        {% set pathinfo = app.request.pathinfo %}
+
+        <div class="w-full mx-auto p-6">
+
+            <h1><b>C</b>reate, <b>R</b>ead, <b>U</b>pdate, and <b>D</b>elete</h1>
+
+            <nav class="nav nav-pills">
+
+                {#
+                    Navigation activation logic
+
+                    - "route == current" activates the link if the current route matches exactly.
+                    - "iSubRoute" activates the link for subroutes.
+
+                    Example:
+                        Route: crud_service_request_edit
+                        Path:  /crud/service-request/123/edit
+
+                    The route defaults contain a "section" value (e.g. "/crud/service-request").
+                    If the current URL path starts with that section, the parent navigation
+                    item should also be marked as active.
+
+                    This allows subpages (edit, show, create, etc.) to keep the correct
+                    navigation item highlighted.
+                #}
+
+                {% for current, title in links %}
+                    {% set defaults = route_defaults(current) %}
+                    {% set iSubRoute = defaults.section is defined and pathinfo starts with defaults.section ~ '/' %}
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ route == current or iSubRoute ? 'active' : '' }}" href="{{ path(current) }}">{{ title }}</a>
+                    </li>
+                {% endfor %}
+
+            </nav>
+
+            {% block crud_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

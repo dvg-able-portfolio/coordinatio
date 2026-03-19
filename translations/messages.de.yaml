@@ -1,0 +1,72 @@
+header_navigation:
+    home_label: 'Start'
+    crud_label: 'CRUD'
+
+home_welcome_title: 'Willkommen bei Coordinatio!'
+home_welcome: 'Echtzeit-Hotel-Service-Koordinationsplattform'
+home_welcome_message: |
+    Hier können Sie Ihre Abteilungen,
+    Mitarbeiter und Services einfach verwalten.
+home_welcome_subtitle_note: '(Symfony-basiertes Portfolio-Projekt)'
+departments: 'Abteilungen'
+department: 'Abteilung'
+employees: 'Mitarbeiter'
+employee: 'Mitarbeiter'
+guests: 'Gäste'
+guest: 'Gast'
+services: 'Services'
+service: 'Service'
+service_request: 'Serviceanfrage'
+service_requests: 'Serviceanfragen'
+
+crud:
+    back_button: 'Zurück'
+    create_new: 'Neu erstellen'
+    edit: 'Bearbeiten'
+    show: 'Anzeigen'
+    update: 'Aktualisieren'
+    delete: 'Löschen'
+    delete_confirm: 'Sind Sie sicher, dass Sie dieses Element löschen möchten?'
+    edit_item: '%item% bearbeiten'
+    create_item: '%item% erstellen'
+    table:
+        header:
+            actions: 'Aktionen'
+        body:
+            no_records_found: 'Keine Einträge gefunden'
+            row:
+                values:
+                    yes: 'Ja'
+                    no: 'Nein'
+    entity:
+        default:
+            available_from: 'Verfügbar ab'
+            available_to: 'Verfügbar bis'
+            category: 'Kategorie'
+            changed_at: 'Geändert am'
+            changed_by: 'Geändert von'
+            check_out_at: 'Abreise am'
+            checked_in_at: 'Anreise am'
+            created_at: 'Erstellt am'
+            created_by: 'Erstellt von'
+            department_id: 'Abteilung ID'
+            department: 'Abteilung'
+            description: 'Beschreibung'
+            employee_id: 'Mitarbeiter ID'
+            employee: 'Mitarbeiter'
+            guest: 'Gast'
+            guest_id: 'Gast ID'
+            id: 'ID'
+            is_schedulable: 'Planbar'
+            login_token: 'Login-Token'
+            name: 'Name'
+            new_status: 'Neuer Status'
+            previous_status: 'Vorheriger Status'
+            role: 'Rolle'
+            room_number: 'Raumnummer'
+            schedule_at: 'Geplant für'
+            service_request_id: 'Serviceanfrage ID'
+            service_request: 'Serviceanfrage'
+            session_token: 'Sitzungs-ID'
+            status: 'Status'
+            updated_at: 'Aktualisiert am'

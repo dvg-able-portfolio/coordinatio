@@ -1,0 +1,64 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'guest'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'guest'|trans }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<td>{{ guest.id }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<td>{{ guest.name }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.room_number'|trans }}</th>
+				<td>{{ guest.roomNumber }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.session_token'|trans }}</th>
+				<td>{{ guest.sessionToken }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.checked_in_at'|trans }}</th>
+				<td>{{ guest.checkedInAt ? guest.checkedInAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.check_out_at'|trans }}</th>
+				<td>{{ guest.checkOutAt ? guest.checkOutAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<td>{{ guest.createdAt ? guest.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<td>{{ guest.updatedAt ? guest.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.edit_button('crud_guest_edit', guest.id) }}
+			{{ m.back_button('crud_guest_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_guest_delete',guest.id) }}
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<header class="bg-gray-800 text-white">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        {#
+            Route prefixes used to detect subroutes.
+
+            Example:
+            - Routes starting with "crud_" belong to the CRUD section
+            - Routes starting with "web_" belong to the public/admin website section (currently not in use, maybe deprecated)
+
+            This allows the parent navigation item to remain active
+            even when the user is on a deeper page like:
+                crud_employee_index
+                crud_service_edit
+        #}
+
+        {% set subroutes = ['web_','crud_'] %}
+        {% set route = app.request.attributes.get('_route') %}
+        {% set available_locales = ['en', 'de'] %}
+        {# Determine the next locale to switch to #}
+        {% set next_locale = available_locales | filter(l => l != app.request.locale) | first %}
+
+        <nav class="navbar">
+            <a class="navbar-brand" href="{{ path('web_home') }}">
+                <img src="{{ asset('images/logo.png') }}" height="80" alt="Coordinatio" class="logo-hover">
+            </a>
+
+            <ul class="nav nav-pills">
+            {% for current, title in header_navigation_links.getMenu() %}
+                {% set isSubroute =  false %}
+                {% for subroute in subroutes %}
+                    {% set isSubroute = not isSubroute and route starts with subroute and current starts with subroute %}
+                {% endfor %}
+                <li class="nav-item">
+                    <a class="nav-link {{ route == current or isSubroute ? 'active' : '' }}" href="{{ path(current) }}">{{ title|trans }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+
+            <ul class="nav nav-pills ms-auto">
+                <li class="nav-item">
+                    <a href="?lang={{ next_locale }}" class="nav-link toggle-locale">
+                        {{ app.request.locale | upper }} → {{ next_locale | upper }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+</form>
+    </div>
+</header>
+<style>
+    .logo-hover { transition: all 0.3s ease; }
+    .logo-hover:hover { content: url('{{ asset('images/logo-hover.png') }}'); }
+</style>

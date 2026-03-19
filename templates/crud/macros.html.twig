@@ -1,0 +1,35 @@
+{% macro delete_button(route, id) %}
+    <form method="post"
+          action="{{ path(route, {'id': id}) }}"
+          onsubmit="return confirm('{{ 'crud.delete_confirm'|trans|e('js') }}');">
+
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ id) }}">
+
+        <button type="submit" class="btn btn-danger">
+            {{ 'crud.delete'|trans }}
+        </button>
+    </form>
+{% endmacro %}
+
+{% macro list_action_button(route, parameters={}, btn_text='action', btn_class='btn btn-primary btn-sm') %}
+    <a type="button" class="{{ btn_class }}" href="{{ path(route, parameters) }}">{{ btn_text|trans }}</a>
+{% endmacro %}
+
+{% macro edit_button(route, id) %}
+    <a type="button" class="btn btn-primary" href="{{ path(route,{'id': id}) }}">{{ 'crud.edit'|trans}}</a>
+{% endmacro %}
+
+{% macro new_button(route) %}
+    <a type="button" class="btn btn-primary" href="{{ path(route) }}">{{ 'crud.create_new'|trans}}</a>
+{% endmacro %}
+
+{% macro back_button(route) %}
+    <a type="button" class="btn btn-primary" href="{{ path(route) }}">{{ 'crud.back_button'|trans }}</a>
+{% endmacro %}
+
+{% macro crud_form(form) %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-success">{{ 'crud.update'|trans }}</button>
+    {{ form_end(form) }}
+{% endmacro %}

@@ -1,0 +1,55 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'employee'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'employee'|trans }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<td>{{ employee.id }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<td>{{ employee.name }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.role'|trans }}</th>
+				<td>{{ employee.role }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.login_token'|trans }}</th>
+				<td>{{ employee.loginToken }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<td>{{ employee.createdAt ? employee.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<td>{{ employee.updatedAt ? employee.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.edit_button('crud_employee_edit', employee.id) }}
+			{{ m.back_button('crud_employee_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_employee_delete',employee.id) }}
+		</div>
+	</div>
+
+{% endblock %}

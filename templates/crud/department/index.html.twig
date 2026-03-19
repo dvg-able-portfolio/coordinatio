@@ -1,0 +1,43 @@
+{% extends 'crud/base.html.twig' %}
+
+{% block title %}{{ 'departments'|trans }}
+{% endblock %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block crud_content %}
+	<h1>{{ 'departments'|trans }}</h1>
+
+	<table class="table table-auto md:table-fixed">
+		<thead>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<th>{{ 'crud.entity.default.description'|trans }}</th>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<th>{{ 'crud.table.header.actions'|trans }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for department in departments %}
+				<tr>
+					<td>{{ department.id }}</td>
+					<td>{{ department.name }}</td>
+					<td>{{ department.description }}</td>
+					<td>{{ department.createdAt ? department.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ department.updatedAt ? department.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						{{ m.list_action_button('crud_department_show',{'id': department.id},'crud.show') }}
+						{{ m.list_action_button('crud_department_edit',{'id': department.id},'crud.edit') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">{{ 'crud.table.body.actions.no_records_found'|trans }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{{ m.new_button('crud_department_new') }}
+{% endblock %}

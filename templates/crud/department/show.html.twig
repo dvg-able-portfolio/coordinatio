@@ -1,0 +1,51 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'department'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'department'|trans }}</h1>
+
+	<table class="table table-auto md:table-fixed">
+		<tbody>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<td>{{ department.id }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<td>{{ department.name }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.description'|trans }}</th>
+				<td>{{ department.description }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<td>{{ department.createdAt ? department.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<td>{{ department.updatedAt ? department.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.edit_button('crud_department_edit', department.id) }}
+			{{ m.back_button('crud_department_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_department_delete',department.id) }}
+		</div>
+	</div>
+
+{% endblock %}

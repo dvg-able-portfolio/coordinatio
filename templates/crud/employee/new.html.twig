@@ -1,0 +1,15 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}{{ 'crud.create_item'|trans({'%item%': 'employee'|trans}) }}{% endblock %}
+
+{% block crud_content %}
+    <h1{{ 'crud.create_item'|trans({'%item%': 'employee'|trans}) }}</h1>
+
+     {{ m.crud_form(form) }}
+
+    <div class="d-flex">
+          {{ m.back_button('crud_employee_index') }}
+    </div>
+{% endblock %}

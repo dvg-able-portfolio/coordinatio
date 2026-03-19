@@ -1,0 +1,27 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}{{ 'crud.edit_item'|trans({'%item%': 'service'|trans}) }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'crud.edit_item'|trans({'%item%': 'service'|trans}) }}</h1>
+
+	{{ m.crud_form(form) }}
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.back_button('crud_employee_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_service_delete',guest.id) }}
+		</div>
+	</div>
+
+
+{% endblock %}

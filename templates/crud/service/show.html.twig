@@ -1,0 +1,69 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'service'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'service'|trans }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<td>{{ service.id }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<td>{{ service.name }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.description'|trans }}</th>
+				<td>{{ service.description }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.category'|trans }}</th>
+				<td>{{ service.category }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.is_schedulable'|trans }}</th>
+				<td>{{ service.isSchedulable ? 'Yes' : 'No' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.available_from'|trans }}</th>
+				<td>{{ service.availableFrom }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.available_to'|trans }}</th>
+				<td>{{ service.availableTo }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
+				<td>{{ service.createdAt ? service.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+			<tr>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
+				<td>{{ service.updatedAt ? service.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.edit_button('crud_service_edit', service.id) }}
+			{{ m.back_button('crud_service_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_service_delete',service.id) }}
+		</div>
+	</div>
+
+
+{% endblock %}
