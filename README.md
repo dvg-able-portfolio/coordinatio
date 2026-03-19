@@ -40,10 +40,13 @@ Read more: [Development Workflow](docs/development-workflow.md)
 - Docker
 - Caddy
 
+## Setup
+
+- [Setup](docs/setup.md)
+
 ## Documentation (WIP)
 
 - [Architecture](docs/architecture.md)
-- [Setup From Zero](docs/setup-from-zero.md)
 - [API Documentation](docs/api.md)
 - [About the Author](docs/about-me.md)
 - [Development Protocol](docs/development-log.md)
