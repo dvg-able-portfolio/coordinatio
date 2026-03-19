@@ -1,0 +1,123 @@
+
+services:
+###> application ###
+  app:
+    restart: unless-stopped
+    container_name: app
+    build: ./docker/app
+    ports:
+      - "9000:9000"
+    environment:
+      APP_ENV: "dev"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-app}:${POSTGRES_PASSWORD:-!ChangeMe!}@database:5432/${POSTGRES_DB:-app}?serverVersion=${POSTGRES_VERSION:-15}&charset=${POSTGRES_CHARSET:-utf8}
+    volumes:
+      - .:/var/app:cached
+      - /var/app/var/cache
+      - /var/app/var/log
+    working_dir: /var/app/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - service-network
+###< application ###
+
+###> doctrine/doctrine-bundle ###
+  database:
+    image: postgres:${POSTGRES_VERSION:-16}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+      POSTGRES_USER: ${POSTGRES_USER:-app}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-app}", "-U", "${POSTGRES_USER:-app}"]
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    volumes:
+      - database_data:/var/lib/postgresql/data:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"
+    networks:
+      - service-network
+###< doctrine/doctrine-bundle ###
+
+###> caddy ###
+  caddy:
+    build: ./docker/caddy
+    restart: unless-stopped
+    working_dir: /var/app
+    environment:
+        APP_ENV: dev
+        APP_DEBUG: 1
+        FASTCGI_TARGET: app
+        MERCURE_TARGET: mercure
+    depends_on:
+        - app
+        - database
+    ports:
+        - "80:80"
+        - "443:443"
+    volumes:
+        - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile
+        - ./public:/var/app/public
+        - caddy_data:/data
+        - caddy_config:/config
+    networks:
+        - service-network
+    container_name: caddy-service
+    command: /usr/bin/caddy run --config /etc/caddy/Caddyfile
+###< caddy ###
+
+###> symfony/mercure-bundle ###
+  mercure:
+    container_name: mercure
+    image: dunglas/mercure
+    restart: unless-stopped
+    environment:
+      # Uncomment the following line to disable HTTPS,
+      SERVER_NAME: ':80'
+      MERCURE_PUBLISHER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+      MERCURE_SUBSCRIBER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+      # Set the URL of your Symfony project (without trailing slash!) as value of the cors_origins directive
+      MERCURE_EXTRA_DIRECTIVES: |
+        cors_origins *
+        anonymous
+        ui
+    # Comment the following line to disable the development mode
+    command: /usr/bin/caddy run --config /etc/caddy/dev.Caddyfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "https://localhost/healthz"]
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    volumes:
+      - mercure_data:/data
+      - mercure_config:/config
+    networks:
+      - service-network
+    ports:
+      - "3000:80"
+###< symfony/mercure-bundle ###
+
+volumes:
+###> caddy ###
+  caddy_data:
+  caddy_config:
+###< caddy ###
+
+###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
+
+###> symfony/mercure-bundle ###
+  mercure_data:
+  mercure_config:
+###< symfony/mercure-bundle ###
+
+
+networks:
+  service-network:
+    driver: bridge   

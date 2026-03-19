@@ -1,0 +1,22 @@
+:80 {
+
+    @mercure path /.well-known/mercure*
+
+    reverse_proxy @mercure mercure:80 {
+        flush_interval -1
+    }
+
+    root * /var/app/public
+
+    encode gzip
+
+    php_fastcgi {$FASTCGI_TARGET}:9000 {
+        resolve_root_symlink
+    }
+
+    file_server
+
+    log {
+        output stdout
+    }
+}

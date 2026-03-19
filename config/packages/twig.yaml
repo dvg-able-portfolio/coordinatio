@@ -1,0 +1,9 @@
+twig:
+    file_name_pattern: '*.twig'
+    cache: '%kernel.cache_dir%/twig'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    globals:
+        header_navigation_links: '@App\Provider\HeaderMenuProvider'
+when@test:
+    twig:
+        strict_variables: true
