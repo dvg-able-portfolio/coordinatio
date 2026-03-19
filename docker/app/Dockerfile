@@ -1,7 +1,7 @@
 # Use latest PHP-FPM Alpine image
 FROM php:8.5-fpm-alpine
 
-# 
+# Install packages
 RUN apk add --no-cache icu-dev bash postgresql-dev git curl openssh
 
 RUN docker-php-ext-install pdo_pgsql pgsql
