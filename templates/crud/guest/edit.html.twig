@@ -8,7 +8,7 @@
 {% block crud_content %}
 	<h1>{{ 'crud.edit_item'|trans({'%item%': 'guest'|trans}) }}</h1>
 
-	{{ m.crud_form(form) }}
+	{{ m.crud_form(form,'crud.update') }}
 
 
 	<div
