@@ -2,7 +2,8 @@
 
 {% import 'crud/macros.html.twig' as m %}
 
-{% block title %}{{ 'service_requests'|trans }}
+{% block title %}
+	{{ 'service_requests'|trans }}
 {% endblock %}
 
 {% block crud_content %}
@@ -39,7 +40,7 @@
 		{% else %}
 			<tr>
 				<td colspan="8"></td>
-				<th>{{ 'crud.table.body.actions.no_records_found'|trans }}</th>
+				<th>{{ 'crud.table.body.no_records_found'|trans }}</th>
 			</tr>
 		</td>
 	</tbody>
