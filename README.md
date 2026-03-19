@@ -6,6 +6,8 @@ A demo project using Symfony, Mercure and PostgreSQL.
 
 Read more: [Project Overview](docs/project-overview.md)
 
+> **⚠️ Warning:** This project is for development and portfolio purposes only. It is **not intended for production use**.
+
 ## About Me
 
 Read more about me: [About the Author](docs/about-me.md)
