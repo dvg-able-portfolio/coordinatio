@@ -20,9 +20,6 @@ USER appuser
 ENV HOME=/home/appuser
 ENV COMPOSER_HOME=/home/appuser/.composer
 
-# Copy your application code
-COPY . .
-
 
 # Expose the port PHP-FPM listens on
 EXPOSE 9000

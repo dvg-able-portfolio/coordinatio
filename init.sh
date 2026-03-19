@@ -6,6 +6,10 @@ echo "🚀 Initializing Symfony application..."
 
 CONTAINER="app"
 
+# Create .env
+echo "Creating .env"
+docker compose exec $CONTAINER cp .env.dev .env
+
 # Install dependencies
 echo "📦 Installing Composer dependencies..."
 docker compose exec $CONTAINER composer install
