@@ -8,6 +8,6 @@ I have worked with frameworks such as Symfony and Phalcon, and in recent years I
 I continuously stay up to date with the PHP ecosystem, including new versions, RFCs, and community trends.  
 I am committed to ongoing learning and open to adopting new technologies when they add value.
 
-In my professional work, I have experience with the **Atlassian stack** (Jira, Confluence, Bitbucket) and primarily used **PHPStorm** as my development environment.
+In my professfional work, I have experience with the **Atlassian stack** (Jira, Confluence, Bitbucket) and primarily used **PHPStorm** as my development environment.
 
 [GitHub](https://github.com/dvg-able)
