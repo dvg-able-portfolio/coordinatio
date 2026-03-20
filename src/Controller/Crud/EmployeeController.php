@@ -6,8 +6,8 @@ namespace App\Controller\Crud;
 
 use App\Entity\Employee;
 use App\Form\EmployeeType;
-use App\Repository\DepartmentRepository;
 use App\Repository\EmployeeRepository;
+use App\Service\Crud\Guard\CreationGuard;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,13 +26,11 @@ final class EmployeeController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_employee_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, DepartmentRepository $departmentRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, CreationGuard $guard): Response
     {
-        if ($departmentRepository->count([]) === 0) {
-            $this->addFlash('warning', [
-                'key'    => 'flash.no_entries_for_creation',
-                'params' => ['%entity%' => 'employee', '%dependency%' => 'department'],
-            ]);
+        $result = $guard->guard(Employee::class);
+        if (!$result->isAllowed()) {
+            $this->addFlash(...$result->getFlashMessage());
             return $this->redirectToRoute('crud_service_request_index');
         }
 

@@ -7,6 +7,7 @@ namespace App\Controller\Crud;
 use App\Entity\Service;
 use App\Form\ServiceType;
 use App\Repository\ServiceRepository;
+use App\Service\Crud\Guard\CreationGuard;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,8 +26,15 @@ final class ServiceController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_service_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, CreationGuard $guard): Response
     {
+        
+        $result = $guard->guard(Service::class);
+        if (!$result->isAllowed()) {
+            $this->addFlash(...$result->getFlashMessage());
+            return $this->redirectToRoute('crud_service_request_index');
+        }
+
         $service = new Service();
         $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
@@ -73,7 +81,7 @@ final class ServiceController extends AbstractController
     #[Route('/{id}', name: 'crud_service_delete', methods: ['POST'])]
     public function delete(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$service->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $service->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($service);
             $entityManager->flush();
         }

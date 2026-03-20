@@ -29,6 +29,8 @@ crud:
     delete_confirm: 'Sind Sie sicher, dass Sie dieses Element löschen möchten?'
     edit_item: '%item% bearbeiten'
     create_item: '%item% erstellen'
+    flash:
+        no_entries_for_creation: 'Es kann kein/e <b>%entity%</b> erstellt werden, da eines oder mehrere der folgenden fehlen: <b>%dependency%</b>'
     table:
         header:
             actions: 'Aktionen'
@@ -81,5 +83,3 @@ enum:
             done: 'Abgeschlossen'
             cancelled: 'Abgebrochen'
 
-flash:
-    no_entries_for_creation: 'Sie können kein/e %entity% erstellen, da noch keine %dependency% vorhanden sind.'
