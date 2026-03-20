@@ -15,6 +15,7 @@
 				<th>{{ 'crud.entity.default.id'|trans }}</th>
 				<th>{{ 'crud.entity.default.name'|trans }}</th>
 				<th>{{ 'crud.entity.default.role'|trans }}</th>
+				<th>{{ 'crud.entity.default.department'|trans }}</th>
 				<th>{{ 'crud.entity.default.login_token'|trans }}</th>
 				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
 				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
@@ -27,6 +28,7 @@
 					<td>{{ employee.id }}</td>
 					<td>{{ employee.name }}</td>
 					<td>{{ employee.role }}</td>
+					<td>{{ employee.getDepartment().name }}</td>
 					<td>{{ employee.loginToken }}</td>
 					<td>{{ employee.createdAt ? employee.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 					<td>{{ employee.updatedAt ? employee.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
@@ -37,7 +39,7 @@
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="7">{{ 'crud.table.body.no_records_found'|trans }}</td>
+					<td colspan="8">{{ 'crud.table.body.no_records_found'|trans }}</td>
 				</tr>
 			{% endfor %}
 		</tbody>
