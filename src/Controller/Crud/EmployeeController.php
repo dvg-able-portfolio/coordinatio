@@ -26,10 +26,10 @@ final class EmployeeController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_employee_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, CreationGuard $guard): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, CreationGuard $creationGuard): Response
     {
-        $result = $guard->guard(Employee::class);
-        if (!$result->isAllowed()) {
+        $result = $creationGuard->guard(Employee::class);
+        if ($result->isAllowed() === false) {
             $this->addFlash(...$result->getFlashMessage());
             return $this->redirectToRoute('crud_service_request_index');
         }

@@ -8,6 +8,7 @@ use App\Entity\ServiceRequest;
 use App\Form\ServiceRequestType;
 use App\Repository\ServiceRepository;
 use App\Repository\ServiceRequestRepository;
+use App\Service\Crud\Guard\CreationGuard;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,13 +27,11 @@ final class ServiceRequestController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_service_request_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, ServiceRepository $serviceRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager,CreationGuard $creationGuard): Response
     {
-        if ($serviceRepository->count([]) === 0) {
-            $this->addFlash('warning', [
-                'key'    => 'flash.no_entries_for_creation',
-                'params' => ['%entity%' => 'service_request', '%dependency%' => 'service'],
-            ]);
+        $result = $creationGuard->guard(ServiceRequest::class);
+        if ($result->isAllowed() === false) {
+            $this->addFlash(...$result->getFlashMessage());
             return $this->redirectToRoute('crud_service_request_index');
         }
 
