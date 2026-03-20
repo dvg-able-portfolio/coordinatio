@@ -8,8 +8,6 @@ Becomes the folder for api requests
 
 This will be the main web folder for the coordinatio project.
 
-> Currently i will keep this folder structure.
-
 ## Crud (dev only)
 
 It serves to provide easy access to entities and is more of a testing ground for me.
@@ -17,3 +15,6 @@ It serves to provide easy access to entities and is more of a testing ground for
 ## Dev (dev only)
 
 Here i have some development actions
+
+
+> Currently i will keep this folder structure.
