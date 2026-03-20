@@ -2,7 +2,8 @@
 
 {% import 'crud/macros.html.twig' as m %}
 
-{% block title %}{{ 'crud.edit_item'|trans({'%item%': 'service'|trans}) }}
+{% block title %}
+	{{ 'crud.edit_item'|trans({'%item%': 'service'|trans}) }}
 {% endblock %}
 
 {% block crud_content %}
@@ -19,7 +20,7 @@
 
 		<!-- Right buttons -->
 		<div class="d-flex gap-2">
-			{{ m.delete_button('crud_service_delete',guest.id) }}
+			{{ m.delete_button('crud_service_delete',service.id) }}
 		</div>
 	</div>
 
