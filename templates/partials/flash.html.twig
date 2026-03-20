@@ -5,9 +5,17 @@
 				{% if message.key is defined %}
 					{% set translatedParams = {} %}
 					{% for key, value in message.params %}
-						{% set translatedParams = translatedParams|merge({(key): value|trans}) %}
+						{% if value is iterable %}
+							{% set translated = [] %}
+							{% for item in value %}
+								{% set translated = translated|merge([item|trans]) %}
+							{% endfor %}
+							{% set translatedParams = translatedParams|merge({(key):  translated|join(', ') }) %}
+						{% else %}
+							{% set translatedParams = translatedParams|merge({(key):  value|trans }) %}
+						{% endif %}
 					{% endfor %}
-					{{ message.key|trans(translatedParams) }}
+					{{ message.key|trans(translatedParams)|raw }}
 				{% else %}
 					{{ message|trans }}
 				{% endif %}
