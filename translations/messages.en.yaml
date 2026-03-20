@@ -26,7 +26,7 @@ crud:
     show: 'Show'
     update: 'Update'
     delete: 'Delete'
-    delete_confirm: "{{ 'crud.delete_confirm'|trans }}"
+    delete_confirm: 'Sind Sie sicher, dass Sie dieses Element löschen möchten?'
     edit_item: 'Edit %item%'
     create_item: 'Create %item%'
     table:
@@ -80,3 +80,6 @@ enum:
             in_progress: 'In Progress'
             done: 'Done'
             cancelled: 'Cancelled'
+
+flash:
+    no_entries_for_creation: 'You cannot create a %entity% because no %dependency% exist yet.'

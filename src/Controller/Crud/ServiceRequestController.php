@@ -29,7 +29,10 @@ final class ServiceRequestController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager, ServiceRepository $serviceRepository): Response
     {
         if ($serviceRepository->count([]) === 0) {
-            $this->addFlash('warning', 'You cannot create a service request because no services exist yet.');
+            $this->addFlash('warning', [
+                'key'    => 'flash.no_entries_for_creation',
+                'params' => ['%entity%' => 'service_request', '%dependency%' => 'service'],
+            ]);
             return $this->redirectToRoute('crud_service_request_index');
         }
 
@@ -79,7 +82,7 @@ final class ServiceRequestController extends AbstractController
     #[Route('/{id}', name: 'crud_service_request_delete', methods: ['POST'])]
     public function delete(Request $request, ServiceRequest $serviceRequest, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$serviceRequest->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $serviceRequest->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($serviceRequest);
             $entityManager->flush();
         }

@@ -1,10 +1,18 @@
 <div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 9999">
-    {% for type, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        {% endfor %}
-    {% endfor %}
+	{% for type, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+				{% if message.key is defined %}
+					{% set translatedParams = {} %}
+					{% for key, value in message.params %}
+						{% set translatedParams = translatedParams|merge({(key): value|trans}) %}
+					{% endfor %}
+					{{ message.key|trans(translatedParams) }}
+				{% else %}
+					{{ message|trans }}
+				{% endif %}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			</div>
+		{% endfor %}
+	{% endfor %}
 </div>

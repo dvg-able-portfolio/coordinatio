@@ -6,6 +6,7 @@ namespace App\Controller\Crud;
 
 use App\Entity\Employee;
 use App\Form\EmployeeType;
+use App\Repository\DepartmentRepository;
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,8 +26,16 @@ final class EmployeeController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_employee_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, DepartmentRepository $departmentRepository): Response
     {
+        if ($departmentRepository->count([]) === 0) {
+            $this->addFlash('warning', [
+                'key'    => 'flash.no_entries_for_creation',
+                'params' => ['%entity%' => 'employee', '%dependency%' => 'department'],
+            ]);
+            return $this->redirectToRoute('crud_service_request_index');
+        }
+
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
@@ -73,7 +82,7 @@ final class EmployeeController extends AbstractController
     #[Route('/{id}', name: 'crud_employee_delete', methods: ['POST'])]
     public function delete(Request $request, Employee $employee, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$employee->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $employee->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($employee);
             $entityManager->flush();
         }

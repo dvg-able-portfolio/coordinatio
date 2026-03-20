@@ -80,3 +80,6 @@ enum:
             in_progress: 'In Bearbeitung'
             done: 'Abgeschlossen'
             cancelled: 'Abgebrochen'
+
+flash:
+    no_entries_for_creation: 'Sie können kein/e %entity% erstellen, da noch keine %dependency% vorhanden sind.'
