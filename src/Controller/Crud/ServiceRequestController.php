@@ -6,6 +6,7 @@ namespace App\Controller\Crud;
 
 use App\Entity\ServiceRequest;
 use App\Form\ServiceRequestType;
+use App\Repository\ServiceRepository;
 use App\Repository\ServiceRequestRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,8 +26,13 @@ final class ServiceRequestController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_service_request_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ServiceRepository $serviceRepository): Response
     {
+        if ($serviceRepository->count([]) === 0) {
+            $this->addFlash('warning', 'You cannot create a service request because no services exist yet.');
+            return $this->redirectToRoute('crud_service_request_index');
+        }
+
         $serviceRequest = new ServiceRequest();
         $form = $this->createForm(ServiceRequestType::class, $serviceRequest);
         $form->handleRequest($request);

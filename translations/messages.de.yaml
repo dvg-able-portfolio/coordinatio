@@ -70,3 +70,13 @@ crud:
             session_token: 'Sitzungs-ID'
             status: 'Status'
             updated_at: 'Aktualisiert am'
+
+enum:
+    service_request:
+        status:
+            created: 'Erstellt'
+            open: 'Offen'
+            assigned: 'Zugewiesen'
+            in_progress: 'In Bearbeitung'
+            done: 'Abgeschlossen'
+            cancelled: 'Abgebrochen'

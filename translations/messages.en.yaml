@@ -70,3 +70,13 @@ crud:
             session_token: 'Session token'
             status: 'Status'
             updated_at: 'Updated at'
+
+enum:
+    service_request:
+        status:
+            created: 'Created'
+            open: 'Open'
+            assigned: 'Assigned'
+            in_progress: 'In Progress'
+            done: 'Done'
+            cancelled: 'Cancelled'

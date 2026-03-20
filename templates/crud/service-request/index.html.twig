@@ -29,7 +29,7 @@
 					<td>{{ service_request.roomNumber }}</td>
 					<td>{{ service_request.createdBy }}</td>
 					<td>{{ service_request.scheduleAt ? service_request.scheduleAt|date('H:i') : '' }}</td>
-					<td>{{ service_request.status.label() }}</td>
+					<td>{{ service_request.status.translationKey()|trans }}</td>
 					<td>{{ service_request.createdAt ? service_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 					<td>{{ service_request.updatedAt ? service_request.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 					<td>

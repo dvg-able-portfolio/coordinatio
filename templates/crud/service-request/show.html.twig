@@ -9,6 +9,7 @@
 {% block crud_content %}
 	<h1>{{ 'service_request'|trans }}</h1>
 
+
 	<table class="table">
 		<tbody>
 			<tr>
@@ -29,22 +30,20 @@
 			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.status'|trans }}</th>
-				<td>{{ service_request.status.value }}</td>
+				<td>{{ service_request.status.translationKey()|trans }}</td>
 			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
 				<td>{{ service_request.createdAt ? service_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 			</tr>
 			<tr>
-				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>>
+				<th>{{ 'crud.entity.default.updated_at'|trans }}</th>
 				<td>{{ service_request.updatedAt ? service_request.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 			</tr>
 		</tbody>
 	</table>
 
-
-	<div
-		class="d-flex justify-content-between align-items-center p-1 w-100">
+	<div class="d-flex justify-content-between align-items-center p-1 w-100">
 		<!-- Left buttons -->
 		<div class="d-flex gap-2">
 			{{ m.edit_button('crud_service_request_edit', service_request.id) }}
@@ -56,5 +55,6 @@
 			{{ m.delete_button('crud_service_request_delete',service_request.id) }}
 		</div>
 	</div>
+
 
 {% endblock %}

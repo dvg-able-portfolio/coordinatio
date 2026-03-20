@@ -7,8 +7,10 @@ namespace App\Form;
 use App\Entity\Employee;
 use App\Entity\Guest;
 use App\Entity\ServiceRequest;
+use App\Enum\ServiceRequestStatus;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +26,11 @@ class ServiceRequestType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'crud.entity.default.schedule_at',
             ])
-            ->add('status', options: ['label' => 'crud.entity.default.status'])
+            ->add('status', EnumType::class, options: [
+                'class' => ServiceRequestStatus::class,
+                'label' => 'crud.entity.default.status',
+                'choice_label' => fn(ServiceRequestStatus $status) => $status->translationKey(),
+            ])
             // ->add('created_at')
             // ->add('updated_at')
             ->add('guest', EntityType::class, [

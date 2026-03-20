@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Domain\Services\Request\RequestStatus;
+use App\Enum\ServiceRequestStatus;
 use App\Repository\ServiceRequestRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -41,8 +41,8 @@ class ServiceRequest
     #[ORM\Column(type: 'time')]
     private ?\DateTimeInterface $schedule_at = null;
 
-    #[ORM\Column(enumType: RequestStatus::class)]
-    private RequestStatus $status = RequestStatus::CREATED;
+    #[ORM\Column(enumType: ServiceRequestStatus::class)]
+    private ServiceRequestStatus $status = ServiceRequestStatus::CREATED;
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $created_at = null;
@@ -157,12 +157,12 @@ class ServiceRequest
         return $this;
     }
 
-    public function getStatus(): RequestStatus
+    public function getStatus(): ServiceRequestStatus
     {
         return $this->status;
     }
 
-    public function setStatus(RequestStatus $status): static
+    public function setStatus(ServiceRequestStatus $status): static
     {
         $this->status = $status;
 
