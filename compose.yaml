@@ -7,7 +7,7 @@ services:
             context: ./docker/app
             dockerfile: Dockerfile
         env_file:
-            - .env.dev
+            - .env.dev.example
         ports:
             - '9000:9000'
         environment:
