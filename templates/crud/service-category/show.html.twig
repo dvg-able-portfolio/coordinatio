@@ -1,0 +1,42 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'service_categorie'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'service_categorie'|trans }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ service_category.id }}</td>
+			</tr>
+			<tr>
+				<th>Id</th>
+				<td>{{ service_category.code }}</td>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<td>{{ service_category.name }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div
+		class="d-flex justify-content-between align-items-center p-1 w-100">
+		<!-- Left buttons -->
+		<div class="d-flex gap-2">
+			{{ m.edit_button('crud_service_category_edit', service_category.id) }}
+			{{ m.back_button('crud_service_category_index') }}
+		</div>
+
+		<!-- Right buttons -->
+		<div class="d-flex gap-2">
+			{{ m.delete_button('crud_service_category_delete',service_category.id) }}
+		</div>
+	</div>
+{% endblock %}

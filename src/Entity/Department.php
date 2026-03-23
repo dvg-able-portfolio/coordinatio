@@ -18,7 +18,7 @@ class Department
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, unique: true)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -41,6 +41,9 @@ class Department
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updated_at = null;
+
+    #[ORM\Column(length: 10, unique: true)]
+    private ?string $code = null;
 
     public function __construct()
     {
@@ -179,5 +182,17 @@ class Department
     public function setUpdatedAtValue(): void
     {
         $this->updated_at = new \DateTime();
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
+
+        return $this;
     }
 }

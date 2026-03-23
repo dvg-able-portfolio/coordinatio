@@ -1,0 +1,77 @@
+[
+    {
+        "code": "ROOM-SERV",
+        "name": "Room Service Staff",
+        "description": "Handles in-room food delivery and guest requests",
+        "translations": {
+            "de": {
+                "name": "Zimmerservice Personal",
+                "description": "Verantwortlich für Essenslieferungen und Gästewünsche im Zimmer"
+            },
+            "en": {
+                "name": "Room Service Staff",
+                "description": "Handles in-room food delivery and guest requests"
+            }
+        }
+    },
+    {
+        "code": "KITCHEN-01",
+        "name": "Kitchen Staff",
+        "description": "Prepares all kitchen orders and food services",
+        "translations": {
+            "de": {
+                "name": "Küchenpersonal",
+                "description": "Bereitet alle Bestellungen und Speisen zu"
+            },
+            "en": {
+                "name": "Kitchen Staff",
+                "description": "Prepares all kitchen orders and food services"
+            }
+        }
+    },
+    {
+        "code": "HOUSEKEEP",
+        "name": "Housekeeping Staff",
+        "description": "Responsible for cleaning and laundry services",
+        "translations": {
+            "de": {
+                "name": "Hauswirtschaftspersonal",
+                "description": "Verantwortlich für Zimmerreinigung und Wäscheservice"
+            },
+            "en": {
+                "name": "Housekeeping Staff",
+                "description": "Responsible for cleaning and laundry services"
+            }
+        }
+    },
+    {
+        "code": "WELLNESS01",
+        "name": "Wellness Staff",
+        "description": "Manages spa, gym, and pool activities",
+        "translations": {
+            "de": {
+                "name": "Wellnesspersonal",
+                "description": "Verwaltet Spa, Fitnessstudio und Pool-Aktivitäten"
+            },
+            "en": {
+                "name": "Wellness Staff",
+                "description": "Manages spa, gym, and pool activities"
+            }
+        }
+    },
+    {
+        "code": "FACIL-001",
+        "name": "Facilities Staff",
+        "description": "Maintains parking, WiFi, and business center services",
+        "translations": {
+            "de": {
+                "name": "Technisches Personal",
+                "description": "Wartet Parkplätze, WLAN und Business-Center"
+            },
+            "en": {
+                "name": "Facilities Staff",
+                "description": "Maintains parking, WiFi, and business center services"
+            }
+        }
+    }
+]

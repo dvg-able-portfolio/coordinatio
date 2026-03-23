@@ -18,6 +18,8 @@ services: 'Services'
 service: 'Service'
 service_request: 'ServiceRequest'
 service_requests: 'ServiceRequests'
+service_category: 'Service Category'
+service_categories: 'Service Categories'
 
 crud:
     back_button: 'Back'
@@ -42,9 +44,13 @@ crud:
                     no: 'No'
     entity:
         default:
+            code: 'Code'
             available_from: 'Available from'
             available_to: 'Available to'
+            service_category: 'Service Category'
+            service_categories: 'Service Categories'
             category: 'Category'
+            categories: 'Categories'
             changed_at: 'Changed at'
             changed_by: 'Changed by'
             check_out_at: 'Check-out at'
@@ -82,4 +88,3 @@ enum:
             in_progress: 'In Progress'
             done: 'Done'
             cancelled: 'Cancelled'
-

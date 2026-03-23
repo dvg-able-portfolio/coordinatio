@@ -13,6 +13,7 @@
 		<thead>
 			<tr>
 				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<th>{{ 'crud.entity.default.code'|trans }}</th>
 				<th>{{ 'crud.entity.default.name'|trans }}</th>
 				<th>{{ 'crud.entity.default.description'|trans }}</th>
 				<th>{{ 'crud.entity.default.created_at'|trans }}</th>
@@ -24,6 +25,7 @@
 			{% for department in departments %}
 				<tr>
 					<td>{{ department.id }}</td>
+					<td>{{ department.code }}</td>
 					<td>{{ department.name }}</td>
 					<td>{{ department.description }}</td>
 					<td>{{ department.createdAt ? department.createdAt|date('Y-m-d H:i:s') : '' }}</td>
@@ -35,7 +37,7 @@
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="6">{{ 'crud.table.body.no_records_found'|trans }}</td>
+					<td colspan="7">{{ 'crud.table.body.no_records_found'|trans }}</td>
 				</tr>
 			{% endfor %}
 		</tbody>

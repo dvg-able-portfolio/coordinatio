@@ -15,6 +15,10 @@
 				<th>{{ 'crud.entity.default.id'|trans }}</th>
 				<td>{{ service.id }}</td>
 			</tr>
+				<tr>
+				<th>{{ 'crud.entity.default.code'|trans }}</th>
+				<td>{{ service.code }}</td>
+			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.name'|trans }}</th>
 				<td>{{ service.name }}</td>
@@ -24,8 +28,8 @@
 				<td>{{ service.description }}</td>
 			</tr>
 			<tr>
-				<th>{{ 'crud.entity.default.category'|trans }}</th>
-				<td>{{ service.category }}</td>
+				<th>{{ 'crud.entity.default.categories'|trans }}</th>
+				<td>{{ service.categories|map(c => c.name)|join(', ') }}</td>
 			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.is_schedulable'|trans }}</th>

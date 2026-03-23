@@ -14,8 +14,9 @@
 			<tr>
 				<th>{{ 'crud.entity.default.id'|trans }}</th>
 				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<th>{{ 'crud.entity.default.code'|trans }}</th>
 				<th>{{ 'crud.entity.default.description'|trans }}</th>
-				<th>{{ 'crud.entity.default.category'|trans }}</th>
+				<th>{{ 'crud.entity.default.categories'|trans }}</th>
 				<th>{{ 'crud.entity.default.is_schedulable'|trans }}</th>
 				<th>{{ 'crud.entity.default.available_from'|trans }}</th>
 				<th>{{ 'crud.entity.default.available_to'|trans }}</th>
@@ -28,9 +29,10 @@
 			{% for service in services %}
 				<tr>
 					<td>{{ service.id }}</td>
+					<td>{{ service.code }}</td>
 					<td>{{ service.name }}</td>
 					<td>{{ service.description }}</td>
-					<td>{{ service.category }}</td>
+					<td>{{ service.categories|map(c => c.name)|join(', ') }}</td>
 					<td>{{ (service.isSchedulable ? 'crud.table.body.row.values.yes' :  'crud.table.body.row.values.no')|trans }}</td>
 					<td>{{ service.availableFrom }}</td>
 					<td>{{ service.availableTo }}</td>
@@ -43,7 +45,7 @@
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="10">{{ 'crud.table.body.no_records_found'|trans }}</td>
+					<td colspan="11">{{ 'crud.table.body.no_records_found'|trans }}</td>
 				</tr>
 			{% endfor %}
 		</tbody>

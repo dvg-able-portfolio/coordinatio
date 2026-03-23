@@ -1,0 +1,43 @@
+{% extends 'crud/base.html.twig' %}
+
+{% import 'crud/macros.html.twig' as m %}
+
+{% block title %}
+	{{ 'service_categories'|trans }}
+{% endblock %}
+
+{% block crud_content %}
+	<h1>{{ 'service_categories'|trans }}</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>{{ 'crud.entity.default.id'|trans }}</th>
+				<th>{{ 'crud.entity.default.code'|trans }}</th>
+				<th>{{ 'crud.entity.default.name'|trans }}</th>
+				<th>{{ 'crud.entity.default.description'|trans }}</th>
+				<th>{{ 'crud.table.header.actions'|trans }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for service_category in service_categories %}
+				<tr>
+					<td>{{ service_category.id }}</td>
+					<td>{{ service_category.code }}</td>
+					<td>{{ service_category.name }}</td>
+					<td>{{ service_category.description }}</td>
+					<td>
+						{{ m.list_action_button('crud_service_category_show',{'id': service_category.id},'crud.show') }}
+						{{ m.list_action_button('crud_service_category_edit',{'id': service_category.id},'crud.edit') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">{{ 'crud.table.body.no_records_found'|trans }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{{ m.new_button('crud_service_category_new') }}
+{% endblock %}

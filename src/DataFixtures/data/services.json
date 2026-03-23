@@ -1,0 +1,206 @@
+[
+    {
+        "code": "BURGER-FR",
+        "name": "Burger with Fries",
+        "description": "Delicious burger served with golden fries",
+        "department_code": "KITCHEN-01",
+        "category_codes": ["FOOD"],
+        "translations": {
+            "de": {
+                "name": "Burger mit Pommes",
+                "description": "Leckerer Burger mit goldenen Pommes"
+            },
+            "en": {
+                "name": "Burger with Fries",
+                "description": "Delicious burger served with golden fries"
+            }
+        }
+    },
+    {
+        "code": "CAESAR-S",
+        "name": "Caesar Salad",
+        "description": "Fresh Caesar salad with chicken",
+        "department_code": "KITCHEN-01",
+        "category_codes": ["FOOD"],
+        "translations": {
+            "de": {
+                "name": "Caesar Salat",
+                "description": "Frischer Caesar-Salat mit Huhn"
+            },
+            "en": {
+                "name": "Caesar Salad",
+                "description": "Fresh Caesar salad with chicken"
+            }
+        }
+    },
+    {
+        "code": "ROOM-CLN",
+        "name": "Room Cleaning",
+        "description": "Daily room cleaning service",
+        "department_code": "HOUSEKEEP",
+        "category_codes": ["HOUSEK"],
+        "translations": {
+            "de": {
+                "name": "Zimmerreinigung",
+                "description": "Täglicher Reinigungsservice für Zimmer"
+            },
+            "en": {
+                "name": "Room Cleaning",
+                "description": "Daily room cleaning service"
+            }
+        }
+    },
+    {
+        "code": "LAUNDRY01",
+        "name": "Laundry Service",
+        "description": "Clothes washing and ironing",
+        "department_code": "HOUSEKEEP",
+        "category_codes": ["LAUNDRY"],
+        "translations": {
+            "de": {
+                "name": "Wäscheservice",
+                "description": "Waschen und Bügeln von Kleidung"
+            },
+            "en": {
+                "name": "Laundry Service",
+                "description": "Clothes washing and ironing"
+            }
+        }
+    },
+    {
+        "code": "SPA-MASS",
+        "name": "Spa Massage",
+        "description": "Relaxing full-body massage",
+        "department_code": "WELLNESS01",
+        "category_codes": ["WELL"],
+        "translations": {
+            "de": {
+                "name": "Spa-Massage",
+                "description": "Entspannende Ganzkörpermassage"
+            },
+            "en": {
+                "name": "Spa Massage",
+                "description": "Relaxing full-body massage"
+            }
+        }
+    },
+    {
+        "code": "GYM-ACCESS",
+        "name": "Gym Access",
+        "description": "Access to the fitness center",
+        "department_code": "WELLNESS01",
+        "category_codes": ["WELL"],
+        "translations": {
+            "de": {
+                "name": "Fitnessstudio Zugang",
+                "description": "Zugang zum Fitnessraum"
+            },
+            "en": {
+                "name": "Gym Access",
+                "description": "Access to the fitness center"
+            }
+        }
+    },
+    {
+        "code": "WIFI-PKG",
+        "name": "WiFi Package",
+        "description": "High-speed wireless internet for your room",
+        "department_code": "FACIL-001",
+        "category_codes": ["FACILITIES"],
+        "translations": {
+            "de": {
+                "name": "WLAN-Paket",
+                "description": "Hochgeschwindigkeits-WLAN für Ihr Zimmer"
+            },
+            "en": {
+                "name": "WiFi Package",
+                "description": "High-speed wireless internet for your room"
+            }
+        }
+    },
+    {
+        "code": "PARK-001",
+        "name": "Parking Spot",
+        "description": "Secure on-site parking",
+        "department_code": "FACIL-001",
+        "category_codes": ["FACILITIES"],
+        "translations": {
+            "de": {
+                "name": "Parkplatz",
+                "description": "Sicherer Parkplatz vor Ort"
+            },
+            "en": {
+                "name": "Parking Spot",
+                "description": "Secure on-site parking"
+            }
+        }
+    },
+    {
+        "code": "DINNER-RM",
+        "name": "In-room Dinner",
+        "description": "Dinner served directly in the guest room",
+        "department_code": "ROOM-SERV",
+        "category_codes": ["FOOD"],
+        "translations": {
+            "de": {
+                "name": "Abendessen im Zimmer",
+                "description": "Abendessen wird direkt im Zimmer serviert"
+            },
+            "en": {
+                "name": "In-room Dinner",
+                "description": "Dinner served directly in the guest room"
+            }
+        }
+    },
+    {
+        "code": "CONCIERGE",
+        "name": "Concierge Assistance",
+        "description": "Helps guests with bookings and inquiries",
+        "department_code": "ROOM-SERV",
+        "category_codes": ["FOOD"],
+        "translations": {
+            "de": {
+                "name": "Concierge Service",
+                "description": "Unterstützt Gäste bei Buchungen und Anfragen"
+            },
+            "en": {
+                "name": "Concierge Assistance",
+                "description": "Helps guests with bookings and inquiries"
+            }
+        }
+    },
+    {
+        "code": "POOL-ACC",
+        "name": "Pool Access",
+        "description": "Access to indoor/outdoor swimming pool",
+        "department_code": "WELLNESS01",
+        "category_codes": ["WELL"],
+        "translations": {
+            "de": {
+                "name": "Poolzugang",
+                "description": "Zugang zum Innen- und Außenpool"
+            },
+            "en": {
+                "name": "Pool Access",
+                "description": "Access to indoor/outdoor swimming pool"
+            }
+        }
+    },
+    {
+        "code": "BUSCENTER",
+        "name": "Business Center Use",
+        "description": "Access to computers, printers, and meeting rooms",
+        "department_code": "FACIL-001",
+        "category_codes": ["FACILITIES"],
+        "translations": {
+            "de": {
+                "name": "Business Center Nutzung",
+                "description": "Zugang zu Computern, Druckern und Besprechungsräumen"
+            },
+            "en": {
+                "name": "Business Center Use",
+                "description": "Access to computers, printers, and meeting rooms"
+            }
+        }
+    }
+]

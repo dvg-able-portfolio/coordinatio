@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Repository\ServiceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
@@ -20,14 +22,17 @@ class Service
     #[ORM\JoinColumn(nullable: false)]
     private ?Department $department = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 20, unique: true)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $category = null;
+    /**
+     * @var Collection<int, ServiceCategory>
+     */
+    #[ORM\ManyToMany(targetEntity: ServiceCategory::class, inversedBy: 'services')]
+    private Collection $categories;
 
     #[ORM\Column]
     private ?bool $is_schedulable = null;
@@ -43,6 +48,14 @@ class Service
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updated_at = null;
+
+    #[ORM\Column(length: 10, unique: true)]
+    private ?string $code = null;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -81,18 +94,6 @@ class Service
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): static
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -168,5 +169,41 @@ class Service
     public function setUpdatedAtValue(): void
     {
         $this->updated_at = new \DateTime();
+    }
+
+    /**
+     * @return Collection<int, ServiceCategory>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(ServiceCategory $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(ServiceCategory $category): static
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
+
+        return $this;
     }
 }

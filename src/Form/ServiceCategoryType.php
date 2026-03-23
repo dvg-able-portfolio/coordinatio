@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Form;
 
-use App\Entity\Department;
+use App\Entity\ServiceCategory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DepartmentType extends AbstractType
+class ServiceCategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -17,15 +15,13 @@ class DepartmentType extends AbstractType
             ->add('code', options: ['label' => 'crud.entity.default.code'])
             ->add('name', options: ['label' => 'crud.entity.default.name'])
             ->add('description', options: ['label' => 'crud.entity.default.description'])
-            // ->add('created_at')
-            // ->add('updated_at')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Department::class,
+            'data_class' => ServiceCategory::class,
         ]);
     }
 }

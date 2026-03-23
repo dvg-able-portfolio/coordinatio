@@ -30,7 +30,7 @@ final class ServiceController extends AbstractController
     {
         
         $result = $creationGuard->guard(Service::class);
-        if (!$result->isAllowed() === false) {
+        if ($result->isAllowed() === false) {
             $this->addFlash(...$result->getFlashMessage());
             return $this->redirectToRoute('crud_service_request_index');
         }

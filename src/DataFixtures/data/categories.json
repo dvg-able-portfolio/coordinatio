@@ -1,0 +1,77 @@
+[
+    {
+        "code": "FOOD",
+        "name": "Food",
+        "description": "Food & Beverage services",
+        "translations": {
+            "de": {
+                "name": "Essen",
+                "description": "Speisen- und Getränkeservice"
+            },
+            "en": {
+                "name": "Food",
+                "description": "Food & Beverage services"
+            }
+        }
+    },
+    {
+        "code": "HOUSEK",
+        "name": "Housekeeping",
+        "description": "Room cleaning and maintenance",
+        "translations": {
+            "de": {
+                "name": "Hauswirtschaft",
+                "description": "Zimmerreinigung und Wartung"
+            },
+            "en": {
+                "name": "Housekeeping",
+                "description": "Room cleaning and maintenance"
+            }
+        }
+    },
+    {
+        "code": "LAUNDRY",
+        "name": "Laundry",
+        "description": "Washing and ironing services",
+        "translations": {
+            "de": {
+                "name": "Wäsche",
+                "description": "Wasch- und Bügelservice"
+            },
+            "en": {
+                "name": "Laundry",
+                "description": "Washing and ironing services"
+            }
+        }
+    },
+    {
+        "code": "WELL",
+        "name": "Wellness",
+        "description": "Spa, gym, and pool",
+        "translations": {
+            "de": {
+                "name": "Wellness",
+                "description": "Spa, Fitnessstudio und Pool"
+            },
+            "en": {
+                "name": "Wellness",
+                "description": "Spa, gym, and pool"
+            }
+        }
+    },
+    {
+        "code": "FACILITIES",
+        "name": "Facilities",
+        "description": "Parking, WiFi, and business center",
+        "translations": {
+            "de": {
+                "name": "Einrichtungen",
+                "description": "Parkplätze, WLAN und Business-Center"
+            },
+            "en": {
+                "name": "Facilities",
+                "description": "Parking, WiFi, and business center"
+            }
+        }
+    }
+]

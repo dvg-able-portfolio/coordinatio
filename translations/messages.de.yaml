@@ -18,6 +18,8 @@ services: 'Services'
 service: 'Service'
 service_request: 'Serviceanfrage'
 service_requests: 'Serviceanfragen'
+service_category: 'Service Kategorie'
+service_categories: 'Service Kategorien'
 
 crud:
     back_button: 'Zurück'
@@ -42,9 +44,13 @@ crud:
                     no: 'Nein'
     entity:
         default:
+            code: 'Kennung'
             available_from: 'Verfügbar ab'
             available_to: 'Verfügbar bis'
+            service_category: 'Service Kategorie'
+            service_categories: 'Service Kategorien'
             category: 'Kategorie'
+            categories: 'Kategorien'
             changed_at: 'Geändert am'
             changed_by: 'Geändert von'
             check_out_at: 'Abreise am'
@@ -82,4 +88,3 @@ enum:
             in_progress: 'In Bearbeitung'
             done: 'Abgeschlossen'
             cancelled: 'Abgebrochen'
-
