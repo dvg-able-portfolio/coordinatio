@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html data-symfony-ux-translator-locale="{{ app.request.locale }}">
+<html lang="{{ app.request.locale }}" data-symfony-ux-translator-locale="{{ app.request.locale }}">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="locale" content="{{ app.request.locale }}">
 		<title>
 			{% block title %}Welcome!
 			{% endblock %}

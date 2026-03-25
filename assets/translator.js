@@ -13,6 +13,11 @@ import { messages, localeFallbacks } from '../var/translations/index.js';
 const translator = createTranslator({
     messages,
     localeFallbacks,
+    throwWhenNotFound: true, 
 });
 
 export const { trans } = translator;
+
+export function initLocale(locale) {
+    translator.setLocale(locale);
+}
