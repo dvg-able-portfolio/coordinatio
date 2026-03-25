@@ -76,3 +76,36 @@
 
 - Growing familiarity with VSCode after years on PHPStorm.
 - Need time to adjust workflow and shortcut usage.
+
+# Day 4 – More Translations & State 
+
+**Date:** 2026-03-25
+
+## Goals
+
+- Implement client-side translations for flash messages.
+- Add fixtures for entities to simplify testing.
+- Integrate `yohang/finite` for state machines and `symfony/ux-translator`.
+- Refactor related code for maintainability.
+
+## Steps Taken
+
+1. **Dependency Installation**
+    - Added `yohang/finite` for entity state machines.
+    - Added `symfony/ux-translator` for client-side translations.
+2. **Client-Side Translations**
+    - Implemented translations for flash messages using Symfony UX Translator.
+    - Ensured dynamic messages reflect current locale.
+3. **Fixtures**
+    - Created fixtures for main entities to prepopulate database with test data.
+4. **Refactoring**
+    - Cleaned up related controller and service code for consistency.
+    - Adjusted templates and JS interactions to work with new translation setup.
+5. **Testing & Verification**
+    - Verified flash messages appear correctly in multiple languages.
+
+## Lessons Learned
+
+- **Turbo vs Non-Turbo Pages:** Turbo pages allow partial updates without full reloads; non-Turbo pages require full page reloads for JS to reinitialize.  
+- Client-side translations are more seamless with UX Translator, but integration with Turbo requires attention.  
+- Using fixtures significantly speeds up development and testing.
