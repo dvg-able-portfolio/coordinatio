@@ -16,6 +16,9 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'service-request' => [
+        'path' => './assets/js/service_request.js',
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
@@ -34,5 +37,23 @@ return [
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
+    ],
+    'intl-messageformat' => [
+        'version' => '10.7.18',
+    ],
+    'tslib' => [
+        'version' => '2.8.1',
+    ],
+    '@formatjs/fast-memoize' => [
+        'version' => '2.2.7',
+    ],
+    '@formatjs/icu-messageformat-parser' => [
+        'version' => '2.11.4',
+    ],
+    '@formatjs/icu-skeleton-parser' => [
+        'version' => '1.8.16',
+    ],
+    '@symfony/ux-translator' => [
+        'path' => './vendor/symfony/ux-translator/assets/dist/translator_controller.js',
     ],
 ];

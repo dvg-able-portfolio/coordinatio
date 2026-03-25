@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './stimulus_bootstrap.js';
+import { trans } from './translator.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -8,5 +9,7 @@ import './stimulus_bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
+
+window.trans = trans; // make it global
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
