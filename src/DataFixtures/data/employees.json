@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Anna Schmidt",
+    "role": "Room Attendant",
+    "department_code": "ROOM-SERV",
+    "login_token": "RS-anna-8392"
+  },
+  {
+    "name": "Lukas Weber",
+    "role": "Chef de Partie",
+    "department_code": "KITCHEN-01",
+    "login_token": "KT-lukas-2741"
+  },
+  {
+    "name": "Sophie Müller",
+    "role": "Cleaner",
+    "department_code": "HOUSEKEEP",
+    "login_token": "HK-sophie-6620"
+  },
+  {
+    "name": "Daniel Fischer",
+    "role": "Spa Assistant",
+    "department_code": "WELLNESS01",
+    "login_token": "WL-daniel-1187"
+  },
+  {
+    "name": "Jonas Becker",
+    "role": "Maintenance Technician",
+    "department_code": "FACIL-001",
+    "login_token": "FC-jonas-9903"
+  },
+  {
+    "name": "Laura Hoffmann",
+    "role": "Room Service Supervisor",
+    "department_code": "ROOM-SERV",
+    "login_token": "RS-laura-4455"
+  },
+  {
+    "name": "Tim Schneider",
+    "role": "Sous Chef",
+    "department_code": "KITCHEN-01",
+    "login_token": "KT-tim-7812"
+  },
+  {
+    "name": "Mia Wagner",
+    "role": "Laundry Staff",
+    "department_code": "HOUSEKEEP",
+    "login_token": "HK-mia-5533"
+  }
+]
