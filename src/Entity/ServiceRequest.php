@@ -50,6 +50,10 @@ class ServiceRequest
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updated_at = null;
 
+    #[ORM\ManyToOne(inversedBy: 'serviceRequests')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Service $service = null;
+
     public function __construct()
     {
         $this->serviceRequestHistories = new ArrayCollection();
@@ -204,5 +208,17 @@ class ServiceRequest
     public function setUpdatedAtValue(): void
     {
         $this->updated_at = new \DateTime();
+    }
+
+    public function getService(): ?Service
+    {
+        return $this->service;
+    }
+
+    public function setService(?Service $service): static
+    {
+        $this->service = $service;
+
+        return $this;
     }
 }

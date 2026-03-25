@@ -6,7 +6,6 @@ namespace App\Controller\Crud;
 
 use App\Entity\ServiceRequest;
 use App\Form\ServiceRequestType;
-use App\Repository\ServiceRepository;
 use App\Repository\ServiceRequestRepository;
 use App\Service\Crud\Guard\CreationGuard;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +26,7 @@ final class ServiceRequestController extends AbstractController
     }
 
     #[Route('/new', name: 'crud_service_request_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager,CreationGuard $creationGuard): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, CreationGuard $creationGuard): Response
     {
         $result = $creationGuard->guard(ServiceRequest::class);
         if ($result->isAllowed() === false) {
@@ -46,10 +45,17 @@ final class ServiceRequestController extends AbstractController
             return $this->redirectToRoute('crud_service_request_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('crud/service-request/new.html.twig', [
+        $response = $this->render('crud/service-request/new.html.twig', [
             'service_request' => $serviceRequest,
             'form' => $form,
         ]);
+
+        //Use HTTP headers to prevent caching
+        $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+        $response->headers->set('Pragma', 'no-cache');
+        $response->headers->set('Expires', '0');
+
+        return $response;
     }
 
     #[Route('/{id}', name: 'crud_service_request_show', methods: ['GET'])]

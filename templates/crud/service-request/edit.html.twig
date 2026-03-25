@@ -2,7 +2,8 @@
 
 {% import 'crud/macros.html.twig' as m %}
 
-{% block title %}{{ 'crud.edit_item'|trans({'%item%': 'service_request'|trans}) }}
+{% block title %}
+	{{ 'crud.edit_item'|trans({'%item%': 'service_request'|trans}) }}
 {% endblock %}
 
 {% block crud_content %}
@@ -23,5 +24,8 @@
 		</div>
 	</div>
 
-
+	<script type="module">
+		import {listener} from 'service-request';
+listener.listen();
+	</script>
 {% endblock %}

@@ -27,13 +27,13 @@ class Employee
     #[ORM\OneToMany(targetEntity: ServiceRequest::class, mappedBy: 'employee')]
     private Collection $serviceRequests;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 100)]
     private ?string $role = null;
 
-    #[ORM\Column(length: 6)]
+    #[ORM\Column(length: 20)]
     private ?string $login_token = null;
 
     #[ORM\Column(type: 'datetime')]

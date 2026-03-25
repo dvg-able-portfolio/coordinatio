@@ -52,9 +52,16 @@ class Service
     #[ORM\Column(length: 10, unique: true)]
     private ?string $code = null;
 
+    /**
+     * @var Collection<int, ServiceRequest>
+     */
+    #[ORM\OneToMany(targetEntity: ServiceRequest::class, mappedBy: 'service')]
+    private Collection $serviceRequests;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->serviceRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -203,6 +210,36 @@ class Service
     public function setCode(string $code): static
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ServiceRequest>
+     */
+    public function getServiceRequests(): Collection
+    {
+        return $this->serviceRequests;
+    }
+
+    public function addServiceRequest(ServiceRequest $serviceRequest): static
+    {
+        if (!$this->serviceRequests->contains($serviceRequest)) {
+            $this->serviceRequests->add($serviceRequest);
+            $serviceRequest->setService($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServiceRequest(ServiceRequest $serviceRequest): static
+    {
+        if ($this->serviceRequests->removeElement($serviceRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($serviceRequest->getService() === $this) {
+                $serviceRequest->setService(null);
+            }
+        }
 
         return $this;
     }

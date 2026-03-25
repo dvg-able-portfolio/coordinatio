@@ -88,3 +88,10 @@ enum:
             in_progress: 'In Progress'
             done: 'Done'
             cancelled: 'Cancelled'
+
+
+flash:
+    messages:
+        employee_changed_update_status: 'Employee changed, status set to <b>%status%</b>'
+        guest_changed_update_room: 'Guest changed, room set to <b>%room%</b>'
+

@@ -2,14 +2,21 @@
 
 {% import 'crud/macros.html.twig' as m %}
 
-{% block title %}{{ 'crud.create_item'|trans({'%item%': 'service_request'|trans}) }}{% endblock %}
+{% block title %}
+	{{ 'crud.create_item'|trans({'%item%': 'service_request'|trans}) }}
+{% endblock %}
 
 {% block crud_content %}
-    <h1>{{ 'crud.create_item'|trans({'%item%': 'service_request'|trans}) }}</h1>
+	<h1>{{ 'crud.create_item'|trans({'%item%': 'service_request'|trans}) }}</h1>
 
-     {{ m.crud_form(form) }}
+	{{ m.crud_form(form) }}
 
-    <div class="d-flex">
-         {{ m.back_button('crud_service_request_index') }}
-    </div>
+	<div class="d-flex">
+		{{ m.back_button('crud_service_request_index') }}
+	</div>
+
+	<script type="module">
+		import {listener} from 'service-request';
+listener.listen();
+	</script>
 {% endblock %}

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Enum;
 
-enum ServiceRequestStatus: string
+use Finite\State;
+use Finite\Transition\Transition;
+
+enum ServiceRequestStatus: string implements State
 {
     case CREATED = 'created';
     case OPEN = 'open';
@@ -13,6 +16,17 @@ enum ServiceRequestStatus: string
     case DONE = 'done';
     case CANCELLED = 'cancelled';
 
+
+    public static function getTransitions(): array
+    {
+        return [
+            new Transition('open', [self::CREATED], self::OPEN),
+            new Transition('assign', [self::OPEN], self::ASSIGNED),
+            new Transition('progress', [self::ASSIGNED], self::IN_PROGRESS),
+            new Transition('finish', [self::IN_PROGRESS], self::DONE),
+            new Transition('cancel', [self::IN_PROGRESS,self::OPEN,self::ASSIGNED,self::IN_PROGRESS], self::CANCELLED),
+        ];
+    }
 
     public function translationKey(): string
     {
