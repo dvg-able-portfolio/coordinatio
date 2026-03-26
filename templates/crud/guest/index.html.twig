@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block crud_content %}
-	<h1>{{ 'guests'|trans }}</h1>
+	<h1 data-test="guest-index">{{ 'guests'|trans }}</h1>
 
 	<table class="table">
 		<thead>
@@ -25,7 +25,7 @@
 		</thead>
 		<tbody>
 			{% for guest in guests %}
-				<tr>
+				<tr data-test="guest-row-{{ guest.id }}">
 					<td>{{ guest.id }}</td>
 					<td>{{ guest.name }}</td>
 					<td>{{ guest.roomNumber }}</td>

@@ -3,7 +3,7 @@
 
 		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ id) }}">
 
-		<button type="submit" class="btn btn-danger">
+		<button data-test="crud-form-delete-btn" type="submit" class="btn btn-danger">
 			{{ 'crud.delete'|trans }}
 		</button>
 	</form>
@@ -28,6 +28,6 @@
 {% macro crud_form(form, submit_label='crud.create_new') %}
 	{{ form_start(form) }}
 	{{ form_widget(form) }}
-	<button class="btn btn-success">{{ submit_label|trans }}</button>
+	<button data-test="crud-form-submit-btn" class="btn btn-success">{{ submit_label|trans }}</button>
 	{{ form_end(form) }}
 {% endmacro %}

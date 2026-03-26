@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block crud_content %}
-	<h1>{{ 'guest'|trans }}</h1>
+	<h1 data-test="guest-show">{{ 'guest'|trans }}</h1>
 
 	<table class="table">
 		<tbody>
@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.name'|trans }}</th>
-				<td>{{ guest.name }}</td>
+				<td data-test="guest-name">{{ guest.name }}</td>
 			</tr>
 			<tr>
 				<th>{{ 'crud.entity.default.room_number'|trans }}</th>
