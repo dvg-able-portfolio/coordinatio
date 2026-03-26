@@ -2,12 +2,30 @@
 FROM php:8.5-fpm-alpine
 
 # Install packages
-RUN apk add --no-cache icu-dev bash postgresql-dev git curl openssh
+RUN apk add --no-cache \
+    git \
+    curl \ 
+    openssh \
+    bash \
+    unzip \
+    wget \
+    chromium \
+    chromium-chromedriver \
+    firefox \
+    geckodriver \
+    libzip-dev \
+    libpq-dev \
+    postgresql-dev \
+    zip \
+    && docker-php-ext-install pdo_pgsql zip
 
-RUN docker-php-ext-install pdo_pgsql pgsql
+RUN docker-php-ext-install pdo_pgsql pgsql zip
 
 # Copy Composer binary
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Set environment variables for Panther (optional)
+ENV PANTHER_NO_SANDBOX=1
 
 # Set working directory
 WORKDIR /var/app

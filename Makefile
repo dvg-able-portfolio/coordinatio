@@ -21,4 +21,8 @@ debug-router:
 make-controller:
 	docker compose exec app php bin/console make:controller
 
-.PHONY: composer-install cache-clear make-controller bash fixer-fix fixer-fix-dry debug-router
+panther-test:
+	docker compose exec app php vendor/bin/phpunit -c phpunit.dist.xml
+
+
+.PHONY: composer-install cache-clear make-controller bash fixer-fix fixer-fix-dry debug-router panther-test

@@ -4,6 +4,9 @@
 # Personal temp folder
 /flow
 
+# browser drivers
+/drivers
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
