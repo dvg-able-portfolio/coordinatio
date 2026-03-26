@@ -9,6 +9,7 @@ CONTAINER="app"
 # Create .env
 echo "Creating .env"
 docker compose exec "$CONTAINER" cp .env.dev.example .env
+docker compose exec "$CONTAINER" cp .env.test.example .env.test
 
 # Install dependencies
 echo "📦 Installing Composer dependencies..."
